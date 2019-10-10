@@ -1,0 +1,111 @@
+.home__page {
+
+
+
+  .home_header{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid;
+
+    img{
+      margin-left: 30px;
+    }
+  }
+  .search-favourites-div{
+    height: 56px;
+    border-bottom: 1px solid;
+    display: flex;
+
+    .search-icon{
+      margin: auto 0 auto 10px;
+    }
+
+    input {
+      width: 80%;
+      border: none;
+      border-right: 1px solid;
+    }
+
+    .favourites, .cart{
+      width: 10%;
+      border-right: 1px solid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      .icon {
+        margin-right: 10px;
+      }
+    }
+  }
+
+
+  .products_container{
+    .products_wrapper{
+      padding: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      .product-card{
+        width: 330px;
+        border: 1px solid #ABB9C4;
+        box-sizing: border-box;
+        border-radius: 12px;
+        box-shadow: none;
+        margin-right: 25px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+
+        img{
+          border-bottom: 1px solid;
+          height: 49%;
+          flex: 1.4;
+
+          &.dummy_img{
+            width: 110%;
+            margin-left: -5%;
+          }
+        }
+
+        .product-content-wrapper{
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+
+          .product-content{
+            .label-price{
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+
+              span{
+                margin-right: 16px;
+              }
+            }
+          }
+
+          .product-buttons{
+            display: flex;
+            justify-content: flex-end;
+
+            .btn-success{
+              background-color:#398DE3;
+              color: #FFFFFF;
+
+            }
+
+            .btn-danger{
+              color: #FFFFFF;
+              background-color: #DE4745;
+            }
+          }
+        }
+      }
+    }
+  }
+}

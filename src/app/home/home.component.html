@@ -1,0 +1,50 @@
+<div class="home__page">
+  <header class="home_header">
+    <img src="./../../assets/images/Logo.svg" alt="logo">
+  </header>
+  <section class="search-favourites-div">
+    <i class="material-icons search-icon">search</i>
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" Search by product name, manufacturer, SKU, keyword...">
+    <a type="button" class="favourites" (click)="toggleFavourite()" >
+
+        <mat-icon class="icon" matBadge="{{favouriteProductCount}}" matBadgeColor="warn">favorite</mat-icon>
+      Favourites
+    </a>
+    <a type="button" (click)="toggleCart()" class="cart">
+      <mat-icon class="icon" matBadge="{{cartProductCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
+      Cart
+    </a>
+  </section>
+  <section class="products_container">
+    <div class="products_wrapper">
+        <mat-card class="product-card" *ngFor="let product of products | filter:searchText;">
+            <img mat-card-image [src]="product.images[0].image" *ngIf="product.images[0].image"  alt="Photo of a Shiba Inu">
+            <img class="dummy_img" src="./../../assets/images/dummy-image.svg" *ngIf="!product.images[0].image" alt="dummy image">
+            <div class="product-content-wrapper">
+              <mat-card-content class="product-content">
+                <p>
+                    {{product.description}}
+                </p>
+                <div class="label-price">
+                  <span>Your price</span>
+                  <p>$ {{product.vendor_inventory[0].price}}</p>
+                </div>
+              </mat-card-content>
+              <mat-card-actions class="product-buttons">
+                <button mat-button class="like-btn" (click)="addToFavourite(product.id)">
+                  <i class="material-icons">
+                    {{ product.isFavourite == true ? 'favorite' : 'favorite_border'}}
+                  </i>
+                </button>
+                <button mat-button [ngClass]="product.isAdded ? 'btn-danger' : 'btn-success'" (click)="addToCart( product.id)">
+                    {{ product.isAdded == true ?  'Remove from Cart' : 'Add to Cart'}}
+
+                  </button>
+              </mat-card-actions>
+            </div>
+          </mat-card>
+        </div>
+      </section>
+    </div>
+
+
